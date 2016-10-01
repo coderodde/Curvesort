@@ -82,9 +82,6 @@ namespace net {
                             // Therefore, we update the list head node:
                             Node* newnode = new Node(key);
                             newnode->next = head;
-                            // We don't need to set 'newnode->prev' since we
-                            // begin dumping the sorted contents starting from
-                            // the head node and moving along 'next'.
                             newnode->prev = nullptr;
                             head->prev = newnode;
                             head = newnode;
