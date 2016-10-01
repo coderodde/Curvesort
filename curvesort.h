@@ -57,11 +57,9 @@ namespace net {
                     
                     ~Curvesort()
                     {
-                        Node* next;
-                        
                         while (head)
                         {
-                            next = head->next;
+                            Node* next = head->next;
                             delete head;
                             head = next;
                         }

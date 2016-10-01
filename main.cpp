@@ -64,7 +64,7 @@ int main() {
     std::sort(vec2.begin(), vec2.end());
     end = ct.milliseconds();
     
-    cout << "std::sort in " << (end - start) << " millisecond." << endl;
+    cout << "std::sort in " << (end - start) << " milliseconds." << endl;
     
     cout << "Algorithms agree: "
          << boolalpha
@@ -87,7 +87,7 @@ int main() {
     lst2.sort();
     end = ct.milliseconds();
     
-    cout << "std::list.sort in " << (end - start) << " millisecond." << endl;
+    cout << "std::list.sort in " << (end - start) << " milliseconds." << endl;
     
     cout << "Algorithms agree: "
     << boolalpha
