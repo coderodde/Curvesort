@@ -16,7 +16,7 @@ namespace net {
             void sort_impl(Iter begin, Iter end, std::true_type)
             {
                 using value_type =
-                    typename std::iterator_traits<Iter>::value_type;
+                typename std::iterator_traits<Iter>::value_type;
                 
                 class Curvesort {
                     
@@ -34,7 +34,7 @@ namespace net {
                     Node* head;
                     Node* tail;
                     Node* prev_updated; // Points to the most recently added or
-                                        // updated node.
+                    // updated node.
                     
                 public:
                     
@@ -53,6 +53,18 @@ namespace net {
                         head = node;
                         tail = node;
                         prev_updated = node;
+                    }
+                    
+                    ~Curvesort()
+                    {
+                        Node* next;
+                        
+                        while (head)
+                        {
+                            next = head->next;
+                            delete head;
+                            head = next;
+                        }
                     }
                     
                     void update_smaller_node(value_type key)
@@ -137,7 +149,7 @@ namespace net {
                     void count(Iter begin, Iter end)
                     {
                         begin++; // Omit the first value since we added to the
-                                 // node list.
+                        // node list.
                         while (begin != end)
                         {
                             value_type current_key = *begin;
@@ -194,11 +206,10 @@ namespace net {
             void sort(Iter begin, Iter end)
             {
                 using value_type =
-                    typename std::iterator_traits<Iter>::value_type;
+                typename std::iterator_traits<Iter>::value_type;
                 
                 sort_impl(begin, end, std::is_integral<value_type>());
             }
-            
         } // End of 'net::coderodde::sorting'
     } // End of 'net::coderodde'
 } // End of 'net'
